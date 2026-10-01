@@ -1,0 +1,46 @@
+====================================================================================================
+8. PROGRAMOWANIE OBIEKTOWE (OOP) - JAK ZROZUMIEĆ, ŻEBY ZDAĆ
+====================================================================================================
+To zwykle zadanie za najwięcej punktów. Będą w nim 3 KLASY. Na 90% będzie to schemat:
+1. Klasa Baza: np. Biblioteka / Warsztat / Parking / Hotel
+2. Klasa Obiekt Działający: np. Książka / Samochód / Auto / Pokój
+3. Klasa Gość: np. Czytelnik / Mechanik / Kierowca / Klient
+
+ZASADY TWORZENIA:
+-> Hermetyzacja (Enkapsulacja):
+Pola w klasie ZAWSZE pisz z modyfikatorem `private` (np. `private String tytul;`). Dzięki temu nikt ci tego z zewnątrz nie "popsuje".
+Jak więc odczytać tytuł? Tworzysz do tego modyfikator `public` zwanym GETTEREM (np. `public String getTytul() { return tytul; }`). Nauczyciele mają na punkcie "private" obsesję.
+
+-> Powiązanie obiektów (Obiekt w Obiekcie):
+Jeśli Książka jest wypożyczona, to ona musi wiedzieć, KTO ją wypożyczył. 
+Tworzysz w klasie Książka pole: `private Czytelnik tenKtoWzial;`
+To pole będzie trzymać CAŁY inny obiekt. Jeśli Książka jest w bibliotece wolna, to to pole jest równe `null` (czyli pusto).
+
+-> Logika ("Ify") w metodach:
+Masz napisać metodę `wypozycz()`. Nigdy nie przypisuj w ciemno! Zawsze pierwszy idzie 'if' blokujący.
+  public boolean wypozyczDla(Czytelnik c) {
+      if(this.czyZajete == true) { // Zabezpieczenie!
+          System.out.println("Zajęte!");
+          return false;
+      }
+      this.czyZajete = true; // Jak jest wolne, to tu ustalamy że teraz zajęto
+      this.tenKtoWzial = c;  // Wkładamy czytelnika do środka książki
+      return true;
+  }
+
+JAK TO PRZEROBIĆ NA INNE ZADANIE (Metoda Kopiuj-Wklej):
+Masz mój gotowy kod na "Czytelnika i Książkę". Nauczyciel daje zadanie o "Hotelu i Pokojach". 
+Co robisz? 
+1. Robisz kopiuj-wklej mojego kodu.
+2. Najeżdżasz na nazwę klasy `Ksiazka`, naciskasz skrót od zmiany nazwy (w IntelliJ często Shift+F6) i wpisujesz `Pokoj`. Wszystkie zmienne `Ksiazka` same się zamienią na `Pokoj`.
+3. Klasę `Czytelnik` zmieniasz na `GoscHotelu`.
+4. Klasę `Biblioteka` zmieniasz na `Hotel`. Zamiast `listaKsiazek` robisz `listaPokoi`.
+5. Mechanika działania zostaje W 100% TAKA SAMA! Pokój może być zajęty przez Gościa tak samo, jak Książka przez Czytelnika.
+
+-> toString() - co to i po co?
+Jeśli zrobisz w mainie `System.out.println(czytelnik1);`, w konsoli wyskoczą krzaczki np. "Czytelnik@5ca881b5". Żeby to naprawić, na samym dole w klasie Czytelnik dodajesz metodę:
+  @Override
+  public String toString() {
+      return imie + " " + nazwisko;
+  }
+I od teraz konsola automatycznie będzie ładnie wypisywać imię i nazwisko zamiast kodu z pamięci RAM.

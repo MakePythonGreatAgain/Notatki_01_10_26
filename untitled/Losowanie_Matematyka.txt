@@ -1,0 +1,36 @@
+====================================================================================================
+3. LOSOWANIE (Random) I MATEMATYKA (Math)
+====================================================================================================
+-> KLASA RANDOM (Twój przyjaciel do losowania całkowitych)
+Najpierw musisz go powołać do życia (tylko raz, nad pętlą!):
+  Random los = new Random();
+
+WZÓR UNIWERSALNY: los.nextInt(Maksymalna - Minimalna + 1) + Minimalna;
+- Od 1 do 100:       los.nextInt(100) + 1;       // nextInt(100) dałoby 0-99, więc dajemy +1
+- Od 5 do 15:        los.nextInt(11) + 5;        // bo 15 - 5 + 1 = 11
+- Od -50 do 50:      los.nextInt(101) - 50;
+- Rzut kostką (1-6): los.nextInt(6) + 1;
+
+-> KLASA MATH (Przydatne kalkulatory, nie musisz robić 'new Math()')
+- Math.abs(x)      // Kasuje minus. Jak masz x = -15, to zrobi z tego 15.
+- Math.pow(a, b)   // Podnosi 'a' do potęgi 'b'. (np. Math.pow(2, 3) to 2^3 = 8.0)
+- Math.sqrt(x)     // Oblicza pierwiastek. Przydatne do skracania kodu przy liczbach pierwszych.
+- Math.max(a, b)   // Zwraca po prostu większą z dwóch liczb.
+
+====================================================================================================
+6. LICZBY PIERWSZE I SITO ERATOSTENESA
+====================================================================================================
+Liczba pierwsza to taka, która dzieli się tylko przez 1 i samą siebie (np. 2, 3, 5, 7, 11).
+
+-> Kiedy używać zwykłej funkcji "czyPierwsza(liczba)"?
+Gdy wylosowałeś liczby totalnie od czapy, np. milion, pięć, osiemdziesiąt. Po prostu przepuszczasz każdą liczbę przez pętlę, która sprawdza dzielniki.
+
+-> Kiedy używać "SITA ERATOSTENESA"?
+Gdy zadanie mówi: "Sprawdź liczby pierwsze z przedziału od 1 do 100".
+Jak to działa na chłopski rozum:
+1. Bierzesz "kartkę" (w kodzie to boolean[] tablica). Wyobraź sobie, że piszesz na niej cyfry od 2 do 100.
+2. Zaczynasz od 2. Dwójka to liczba pierwsza, więc jest okej. Ale! Idziesz dalej i zamazujesz korektorem (zmieniasz na 'false') wszystkie WIELOKROTNOŚCI dwójki. Zamazujesz 4, 6, 8, 10, 12... (skoro dzielą się przez 2, to na 100% nie są pierwsze!).
+3. Została 3. Zamazujesz 6 (już zamazana), 9, 12, 15... 
+4. Została 5 (bo 4 skreśliliśmy). Zamazujesz 10, 15, 20...
+5. Na koniec to, co nie jest zamazane na kartce (czyli w tablicy zostało na 'true'), to twoje liczby pierwsze!
+Gotowy kod na Sito masz w pliku SzablonKolekcje.java.

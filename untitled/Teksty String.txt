@@ -1,0 +1,13 @@
+====================================================================================================
+7. TEKSTY (Klasa String)
+====================================================================================================
+Często w Obiektówce musisz sprawdzić "Czy ten czytelnik nazywa się Jan?".
+Pamiętaj: TEKSTÓW W JAVIE NIE PORÓWNUJEMY PRZEZ "==" ! Zawsze używaj .equals() !
+
+String imie = "   Jan Kowalski   ";
+- imie.equals("Jan")              // Błąd, to zwróci false, bo są spacje i inne znaki
+- imie.equalsIgnoreCase("JAN")    // Super przydatne! Ignoruje wielkość liter (Capslocka).
+- imie.trim()                     // Ścina denerwujące spacje z lewej i prawej strony ("Jan Kowalski")
+- imie.length()                   // Zwraca ilość liter
+- imie.toLowerCase()              // Zamienia wszystko na małe litery ("   jan kowalski   ")
+- imie.charAt(0)                  // Zwraca pierwszy znak (literę) z tekstu

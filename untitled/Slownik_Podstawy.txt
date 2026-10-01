@@ -1,0 +1,34 @@
+====================================================================================================
+1. SŁOWNIK - CO WIDZISZ W ZADANIU VS CO PISZESZ W KODZIE
+====================================================================================================
+Gdy w zadaniu przeczytasz:                  Zrób w kodzie:
+----------------------------------------------------------------------------------------------------
+"Wylosuj X liczb"                       -> Użyj obiektu `Random` wewnątrz pętli `for`.
+"Zapisz bez powtórzeń", "Unikalne"      -> Użyj `HashSet`. Wrzucasz tam dane, a duplikaty same znikają.
+"Ile razy występuje..."                 -> Użyj słownika `HashMap<Integer, Integer>`.
+"Sprawdź czy parzysta"                  -> Użyj `if (liczba % 2 == 0)`.
+"Znajdź największą/najmniejszą"         -> Użyj `Collections.max(lista)` lub `Collections.min(lista)`.
+"Posortuj liczby"                       -> Użyj `Collections.sort(lista)`.
+"Wczytaj z klawiatury"                  -> Użyj `Scanner scanner = new Scanner(System.in);`.
+"Wypożycz/Zarezerwuj/Kup obiekt"        -> Obiektówka. Zrób metodę w klasie i sprawdź w niej `if (zajęte == true)`.
+
+====================================================================================================
+2. PODSTAWY: IFY, PĘTLE I MODULO (Operator %)
+====================================================================================================
+Modulo (znak %) to po prostu RESZTA Z DZIELENIA. To najważniejszy operator na sprawdziany z pętli.
+
+-> WARUNKI (Kopiuj te If-y do pętli)
+- Liczba parzysta:               if (liczba % 2 == 0)
+- Liczba nieparzysta:            if (liczba % 2 != 0)
+- Podzielna przez 3:             if (liczba % 3 == 0)
+- Kończąca się na cyfrę 7:       if (liczba % 10 == 7)  // Dzielenie przez 10 zawsze daje na końcu ostatnią cyfrę!
+- Kończąca się na zero:          if (liczba % 10 == 0)
+- Dodatnia:                      if (liczba > 0)
+- Ujemna:                        if (liczba < 0)
+
+-> JAK SZYBKO PRZESZUKIWAĆ LISTY? Pętla "For-Each"
+Zamiast pisać trudnego for(int i=0...), piszemy tzw. pętlę "DLA KAŻDEGO":
+  for (int x : listaLiczb) { 
+      System.out.println(x); // Wypisuje po kolei wszystko z listy
+  }
+To się czyta: "Dla każdego inta (nazwijmy go X) znajdującego się w liście (listaLiczb) zrób to...".
